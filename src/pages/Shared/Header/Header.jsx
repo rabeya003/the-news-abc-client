@@ -4,6 +4,7 @@ import user from "../../../assets/user.png";
 import moment from "moment";
 import { Container } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -28,10 +29,10 @@ const Header = () => {
         <Container>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mx-auto">
-              <Nav.Link href="#Home">Home</Nav.Link>
-              <Nav.Link href="#About">About</Nav.Link>
-              <Nav.Link href="#Career">Career</Nav.Link>
+            <Nav className="mx-auto gap-2">
+              <Link to="/">Home</Link>
+              <Link href="#About">About</Link>
+              <Link href="#Career">Career</Link>
             </Nav>
             <Nav className="">
               <Nav.Link href="#deets">
