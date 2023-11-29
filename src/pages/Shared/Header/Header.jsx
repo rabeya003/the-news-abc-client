@@ -1,16 +1,19 @@
 import { Button, Nav, Navbar } from "react-bootstrap";
-import logo from "../../../assets/logo.png";
-import user from "../../../assets/user.png";
+import logo from "../../../assets/logos.png";
+import users from "../../../assets/user.png";
 import moment from "moment";
 import { Container } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ContextProvider } from "../../../Providers/Authprovider";
 
 const Header = () => {
+  const { user } = useContext(ContextProvider);
   return (
     <Container>
       <div className="text-center">
-        <img src={logo} alt="" />
+        <img style={{ height: "80px" }} src={logo} alt="" />
         <p>
           <small className="text-secondary">
             Journalism Without Fear or Favour
@@ -35,11 +38,19 @@ const Header = () => {
               <Link href="#Career">Career</Link>
             </Nav>
             <Nav className="">
-              <Nav.Link href="#deets">
-                <img className="w-25" src={user} alt="" />
-              </Nav.Link>
+              {user && (
+                <Nav.Link href="#deets">
+                  <img className="w-25" src={users} alt="" />
+                </Nav.Link>
+              )}
               <Nav.Link eventKey={2} href="#memes">
-                <Button variant="secondary">Login</Button>
+                {user ? (
+                  <Button>Logout</Button>
+                ) : (
+                  <Link to="/login" variant="secondary">
+                    Login
+                  </Link>
+                )}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

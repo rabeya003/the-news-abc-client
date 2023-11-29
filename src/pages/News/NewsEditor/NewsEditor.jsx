@@ -10,10 +10,9 @@ const NewsEditor = () => {
         <Card>
           <Card.Img variant="top" src={first} />
           <Card.Body>
-            <Card.Title>21 the most brilliant children</Card.Title>
+            <Card.Title>brilliant children</Card.Title>
             <Card.Text>
               This is a longer card with supporting text below as a natural
-              lead-in to additional content.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -25,7 +24,6 @@ const NewsEditor = () => {
             <Card.Title>Most uniqe</Card.Title>
             <Card.Text>
               This is a longer card with supporting text below as a natural
-              lead-in to additional content.
             </Card.Text>
           </Card.Body>
         </Card>
