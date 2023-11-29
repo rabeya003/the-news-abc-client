@@ -23,7 +23,7 @@ const Login = () => {
         e.target.reset();
       })
       .catch((error) => {
-        setError(error.massage);
+        setError(error.message);
       });
   };
   return (

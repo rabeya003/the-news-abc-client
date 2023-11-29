@@ -25,7 +25,7 @@ const Register = () => {
         emailVeri(user);
       })
       .catch((error) => {
-        setError(error.massage);
+        setError(error.message);
       });
   };
   const emailVeri = (user) => {

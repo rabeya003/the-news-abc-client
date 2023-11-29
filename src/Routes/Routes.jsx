@@ -3,8 +3,8 @@ import Main from "../Layout/Main";
 import Category from "../pages/Home/Category/category";
 import NewsLayout from "../Layout/NewsLayout";
 import News from "../pages/News/News/News";
-import Login from "../pages/Logs/Login";
-import Register from "../pages/Logs/Register";
+import Login from "../pages/RegLog/Login";
+import Register from "../pages/RegLog/Register";
 
 const router = createBrowserRouter([
   {
