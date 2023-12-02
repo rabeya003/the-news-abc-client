@@ -3,12 +3,13 @@ import { ContextProvider } from "../../Providers/Authprovider";
 import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import { sendEmailVerification } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { creatUser } = useContext(ContextProvider);
   const [sucsess, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleReg = (e) => {
     setError("");
     setSuccess("");
@@ -23,6 +24,7 @@ const Register = () => {
         setSuccess("user succesfully registerd");
         e.target.reset();
         emailVeri(user);
+        navigate("/login");
       })
       .catch((error) => {
         setError(error.message);

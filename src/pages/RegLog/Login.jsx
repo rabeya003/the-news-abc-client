@@ -2,16 +2,21 @@ import { useContext } from "react";
 import { ContextProvider } from "../../Providers/Authprovider";
 import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login } = useContext(ContextProvider);
   const [sucsess, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  // const [accepted, setAccepted] = useState(false);
+
   const handleLog = (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
+
     const email = e.target.email.value;
     const password = e.target.password.value;
 
@@ -21,11 +26,15 @@ const Login = () => {
         const user = result.user;
         setSuccess("user succesfully registerd");
         e.target.reset();
+        navigate(location?.state ? location?.state : "/");
       })
       .catch((error) => {
         setError(error.message);
       });
   };
+  // const handleAccept = (e) => {
+  //   setAccepted(e.target.checked);
+  // };
   return (
     <div>
       <form onSubmit={handleLog}>
@@ -49,9 +58,19 @@ const Login = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+          <Form.Check
+            // onClick={handleAccept}
+            name="accept"
+            type="checkbox"
+            label="Check me out"
+          />
         </Form.Group>
-        <Button className="mb-2" variant="primary" type="submit">
+        <Button
+          className="mb-2"
+          // disabled={!accepted}
+          variant="primary"
+          type="submit"
+        >
           Login
         </Button>
         <br></br>

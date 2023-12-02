@@ -9,7 +9,14 @@ import { useContext } from "react";
 import { ContextProvider } from "../../../Providers/Authprovider";
 
 const Header = () => {
-  const { user } = useContext(ContextProvider);
+  const { user, logout } = useContext(ContextProvider);
+  const handleSignOut = () => {
+    logout()
+      .then()
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <Container>
       <div className="text-center">
@@ -45,11 +52,9 @@ const Header = () => {
               )}
               <Nav.Link eventKey={2} href="#memes">
                 {user ? (
-                  <Button>Logout</Button>
+                  <Button onClick={handleSignOut}>Logout</Button>
                 ) : (
-                  <Link to="/login" variant="secondary">
-                    Login
-                  </Link>
+                  <Link to="/login">Login</Link>
                 )}
               </Nav.Link>
             </Nav>
