@@ -41,8 +41,6 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto gap-2">
               <Link to="/">Home</Link>
-              <Link href="#About">About</Link>
-              <Link href="#Career">Career</Link>
             </Nav>
             <Nav className="">
               {user && (

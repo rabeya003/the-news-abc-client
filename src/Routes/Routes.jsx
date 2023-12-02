@@ -42,7 +42,9 @@ const router = createBrowserRouter([
           </Privateroute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/news/${params.id}`),
+          fetch(
+            `https://the-news-dragon-server-alpha-neon.vercel.app/news/${params.id}`
+          ),
       },
     ],
   },

@@ -9,7 +9,9 @@ const Category = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/categories/${id}`)
+    fetch(
+      `https://the-news-dragon-server-alpha-neon.vercel.app/categories/${id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setCategory(data);
@@ -17,7 +19,7 @@ const Category = () => {
       });
   }, [id]);
   useEffect(() => {
-    fetch("http://localhost:5000/news")
+    fetch("https://the-news-dragon-server-alpha-neon.vercel.app/news")
       .then((res) => res.json())
       .then((data) => {
         setNews(data);
