@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import NewsCard from "../NewsCard/NewsCard";
 import { useEffect, useState } from "react";
-import { Badge, Card } from "react-bootstrap";
 
 const Category = () => {
   const [category, setCategory] = useState(null);
