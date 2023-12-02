@@ -4,6 +4,7 @@ import { Navigate, useLocation } from "react-router-dom";
 
 const Privateroute = ({ children }) => {
   const location = useLocation();
+  console.log(location);
   const { user, loader } = useContext(ContextProvider);
   if (loader) {
     return <p>Loading.......</p>;
@@ -11,7 +12,7 @@ const Privateroute = ({ children }) => {
   if (user) {
     return children;
   }
-  return <Navigate state={location?.pathName} to="/login" replace></Navigate>;
+  return <Navigate state={location?.pathname} to="/login" replace></Navigate>;
 };
 
 export default Privateroute;
